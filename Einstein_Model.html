@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Marcador HIRO Preset to exibit a Einstein 3D Model</title>
+
+  <!-- include A-Frame -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+  <!-- we import arjs version without NFT but with marker + location based support -->
+  <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+  <!-- animation of the gltf-model -->
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+</head>
+
+<body>
+  <a-scene embedded arjs>
+
+    <a-assets>
+      <a-assets-item id="einstein-gltf" src="https://raw.githubusercontent.com/KlismannB/ARjs/master/imgs/einstein_model/scene.gltf">
+      </a-assets-item>
+    </a-assets>
+
+    <a-entity camera></a-entity>
+
+    <!-- Preset Hiro Marker -->
+    <a-marker-camera type='pattern' patternUrl='https://raw.githubusercontent.com/KlismannB/ARjs/master/imgs/markers/Einstein%20Marker/pattern-albert-einstein.patt'></a-marker-camera>
+      <!-- 3D Info -->
+      <a-entity position="0 0 0" scale="0.05 0.05 0.05" gltf-model="#einstein-gltf" animation-mixer rotation="270 270 90"> </a-entity>
+    </a-marker-camera>
+
+  </a-scene>
+</body>
+
+</html>
